@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/parqueTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./WEB-INF/iteriaTemplete.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="top">
+        top
+    </ui:define>
+
+    <ui:define name="content">
+        <p:panelGrid columns="1">
+            <p:commandButton value="Cargar" 
+                         id="btnCargarParque" 
+                         action="#{listaParqueView.consultarParque()}" 
+                         update="tblEquipos" icon ="ui-icon-fa-camera"/>
+                         <p:spacer width="100" height="10" /> 
+                        <p:dataTable var="item" id="tblParques" value="#{listaParqueView.listaparques}"
+                                     paginator="true" rows="5" scrollable="true" scrollWidth="100%" 
+                                     emptyMessage="No se encontraron registros" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+                                     rowsPerPageTemplate="5,10,15,100">
+                            
+                            <p:column headerText="id">
+                                <h:outputText value="#{item.id}" />
+                            </p:column>
+
+                            <p:column headerText="name">
+                                <h:outputText value="#{item.nombre}" />
+                            </p:column>
+
+                            <p:column headerText="state">
+                                <h:outputText value="#{item.estado}" />
+                            </p:column>
+
+                            <p:column headerText="capacity">
+                                <h:outputText value="#{item.status}" />
+                            </p:column>
+
+                            <p:column headerText="status">
+                                <h:outputText value="#{item.capacidad}" />
+                            </p:column>
+
+                        </p:dataTable>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+
+</ui:composition>
