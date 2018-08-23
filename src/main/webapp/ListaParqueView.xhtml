@@ -18,7 +18,7 @@
                          action="#{listaParqueView.consultarParque()}" 
                          update="tblEquipos" icon ="ui-icon-fa-camera"/>
                          <p:spacer width="100" height="10" /> 
-                        <p:dataTable var="item" id="tblParques" value="#{listaParqueView.listaparques}"
+                         <p:dataTable var="item" id="tblParques" value="#{listaParqueView.listaparques}"
                                      paginator="true" rows="5" scrollable="true" scrollWidth="100%" 
                                      emptyMessage="No se encontraron registros" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
                                      rowsPerPageTemplate="5,10,15,100">
