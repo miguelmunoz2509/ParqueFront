@@ -16,7 +16,8 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class ListaParqueView {
     public String consultarParque(){
-        System.out.println("mamo es loca");
+        System.out.println("mamo");
         return "";
     }
+    
 }
