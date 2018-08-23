@@ -40,6 +40,8 @@ public class ListaParqueView {
     
     
     public String consultaParques(){
+        
+        System.out.print("uuuuuuuuuuuuu");
         Client cliente = ClientBuilder.newClient();                                 
         WebTarget rs =cliente.target(url);       
         JsonArray jsonarray = (JsonArray) rs.request(MediaType.APPLICATION_JSON).get(JsonArray.class);

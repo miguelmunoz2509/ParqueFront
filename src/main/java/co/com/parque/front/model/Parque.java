@@ -78,8 +78,8 @@ public class Parque {
         parqueTemp.setId(val.getString("id"));
         parqueTemp.setNombre(val.getString("name"));
         parqueTemp.setEstado(val.getString("state"));
-        parqueTemp.setStatus(val.getString("capacity"));
-        parqueTemp.setCapacidad(val.getInt("status"));
+        parqueTemp.setStatus(val.getString("status"));
+        parqueTemp.setCapacidad(val.getInt("capacity"));
         
         return parqueTemp;
     }
