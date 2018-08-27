@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/parqueTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:param name="title" value="Actualizaparque" />
+    <f:metadata>
+        <f:viewParam name="identificacion" value="#{actualizaParqueView.selectedId}"/>
+        <f:event type="preRenderView" listener="#{actualizaParqueView.init()}"/>
+    </f:metadata>
+    
+    <ui:define name="content">
+        <h:panelGrid columns="2" cellpadding = "5">
+            <h:outputLabel for="txtid=" value="id"/>
+            <p:inputText id="txtid" required="true" value="#{actualizaParqueView.selectedParque.id}"/>
+            
+            <h:outputLabel for="txtname" value="name"/>
+            <p:inputText id="txtname" required="true" value="#{actualizaParqueView.selectedParque.nombre}"/>
+            
+            <h:outputLabel for="txtestado" value="estado"/>
+            <p:inputText id="txtestado" required="true" value="#{actualizaParqueView.selectedParque.estado}"/>
+            
+            <h:outputLabel for="txtstatus" value="status"/>
+            <p:inputText id="txtstatus" required="true" value="#{actualizaParqueView.selectedParque.status}"/>
+            
+            <h:outputLabel for="txtcapacidad" value="capacidad"/>
+            <p:inputText id="txtcapacidad" required="true" value="#{actualizaParqueView.selectedParque.capacidad}"/>
+            
+            <p:spacer width="1" height="15"/>
+            <f:facet name="footer">
+                <p:button outcome="listaParque" icon="fa fa-backward" value="Volver"/>
+            </f:facet>
+           
+            
+        </h:panelGrid>
+    </ui:define>
+
+
+</ui:composition>

@@ -12,10 +12,15 @@
 
     <ui:define name="content">
         <p:panelGrid columns="1">
-            <p:commandButton value="Cargar" 
+            <p:commandButton value="Cargar todos los parques" 
                          id="btnCargarParque" 
                          action="#{listaParqueView.consultaParques()}" 
-                         update="tblParque" icon ="ui-icon-fa-camera"/>
+                         update="tblParque"/>
+            <p:commandButton value="Cargar parques abiertos" 
+                         id="btnCargarParqueOpen" 
+                         update="tblParque"
+                         action="#{listaParqueView.consultaParquesOpen()}" 
+                         />
                          <p:spacer width="100" height="10" /> 
                          
                          <p:dataTable var="item" id="tblParque" value="#{listaParqueView.listaparques}"
@@ -42,8 +47,17 @@
                             <p:column headerText="capacidad">
                                 <h:outputText value="#{item.capacidad}" />
                             </p:column>
+                             
+                            <p:column style="width:35px; text-align: center">
+                                 <p:button id="btnEditParque" outcome="Actualizaparque"
+                                           icon="fa fa-edit">
+                                     <f:param name ="action" value="edit"/>
+                                     <f:param name ="identificacion" value="#{item.id}"/>
+                                 </p:button>
+                             </p:column>    
 
                         </p:dataTable>
+       
        
         </p:panelGrid>
     </ui:define>

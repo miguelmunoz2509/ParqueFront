@@ -25,10 +25,9 @@ import javax.ws.rs.core.MediaType;
 @ManagedBean
 @ViewScoped
 public class ListaParqueView {
-    private List<Parque>  listaparques = new ArrayList<>();
+    private List<Parque>  listaparques;
     private final String url = "https://private-05017d-parques1.apiary-mock.com/parks?status=";
-    
-    //getters y setters
+    private final String urlopen = "https://private-05017d-parques1.apiary-mock.com/parks?status=Open";
 
     public List<Parque> getListaparques() {
         return listaparques;
@@ -40,8 +39,7 @@ public class ListaParqueView {
     
     
     public String consultaParques(){
-        
-        System.out.print("uuuuuuuuuuuuu");
+        listaparques = new ArrayList<>();
         Client cliente = ClientBuilder.newClient();                                 
         WebTarget rs =cliente.target(url);       
         JsonArray jsonarray = (JsonArray) rs.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
@@ -49,15 +47,20 @@ public class ListaParqueView {
         Iterator iter = jsonarray.iterator();
         while(iter.hasNext()){
             JsonObject val = (JsonObject)iter.next();                 
-            listaparques.add(Parque.fromJson(val));           
-            /*
-            equipoTemp.setCodigo(val.getString("codigo"));
-            equipoTemp.setNombre(val.getString("nombre"));
-            equipoTemp.setColor(val.getString("Naranja"));
-            equipoTemp.setDt(val.getString("dt"));
-            equipoTemp.setDivision(val.getString("fechaFund"));
-            equipoTemp.setFecha_fundacion(val.getString("division"));
-             */      
+            listaparques.add(Parque.fromJson(val));          
+        }
+        return "";
+    }
+    public String consultaParquesOpen(){ 
+        listaparques = new ArrayList<>();
+        Client cliente = ClientBuilder.newClient();                                 
+        WebTarget rs =cliente.target(urlopen);       
+        JsonArray jsonarray = (JsonArray) rs.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
+        
+        Iterator iter = jsonarray.iterator();
+        while(iter.hasNext()){
+            JsonObject val = (JsonObject)iter.next();                 
+            listaparques.add(Parque.fromJson(val));          
         }
         return "";
     }
