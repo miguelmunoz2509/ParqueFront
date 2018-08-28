@@ -6,28 +6,28 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:param name="title" value="Actualizaparque" />
+    <ui:param name="title" value="Consultaparque" />
     <f:metadata>
-        <f:viewParam name="identificacion" value="#{actualizaParqueView.selectedId}"/>
-        <f:event type="preRenderView" listener="#{actualizaParqueView.init()}"/>
+        <f:viewParam name="identificacion" value="#{consultaParqueView.selectedId}"/>
+        <f:event type="preRenderView" listener="#{consultaParqueView.init()}"/>
     </f:metadata>
     
     <ui:define name="content">
         <h:panelGrid columns="2" cellpadding = "5">
             <h:outputLabel for="txtid=" value="id"/>
-            <p:inputText id="txtid" required="true" value="#{actualizaParqueView.selectedParque.id}"/>
+            <p:inputText id="txtid" required="true" value="#{consultaParqueView.selectedParque.id}"/>
             
             <h:outputLabel for="txtname" value="name"/>
-            <p:inputText id="txtname" required="true" value="#{actualizaParqueView.selectedParque.nombre}"/>
+            <p:inputText id="txtname" required="true" value="#{consultaParqueView.selectedParque.nombre}"/>
             
             <h:outputLabel for="txtestado" value="estado"/>
-            <p:inputText id="txtestado" required="true" value="#{actualizaParqueView.selectedParque.estado}"/>
+            <p:inputText id="txtestado" required="true" value="#{consultaParqueView.selectedParque.estado}"/>
             
             <h:outputLabel for="txtstatus" value="status"/>
-            <p:inputText id="txtstatus" required="true" value="#{actualizaParqueView.selectedParque.status}"/>
+            <p:inputText id="txtstatus" required="true" value="#{consultaParqueView.selectedParque.status}"/>
             
             <h:outputLabel for="txtcapacidad" value="capacidad"/>
-            <p:inputText id="txtcapacidad" required="true" value="#{actualizaParqueView.selectedParque.capacidad}"/>
+            <p:inputText id="txtcapacidad" required="true" value="#{consultaParqueView.selectedParque.capacidad}"/>
             
             <p:spacer width="1" height="15"/>
             <f:facet name="footer">

@@ -21,6 +21,11 @@
                          update="tblParque"
                          action="#{listaParqueView.consultaParquesOpen()}" 
                          />
+            <p:commandButton value="Cargar parques cerrados" 
+                         id="btnCargarParqueClose" 
+                         update="tblParque"
+                         action="#{listaParqueView.consultaParquesClose()}" 
+                         />
                          <p:spacer width="100" height="10" /> 
                          
                          <p:dataTable var="item" id="tblParque" value="#{listaParqueView.listaparques}"
@@ -49,13 +54,24 @@
                             </p:column>
                              
                             <p:column style="width:35px; text-align: center">
-                                 <p:button id="btnEditParque" outcome="Actualizaparque"
+                                 <p:button id="btnEditParque" outcome="Actualizaparque" 
                                            icon="fa fa-edit">
                                      <f:param name ="action" value="edit"/>
                                      <f:param name ="identificacion" value="#{item.id}"/>
                                  </p:button>
-                             </p:column>    
-
+                                <p:button id="btnConsultarParque" 
+                                          title="Consultar"
+                                          outcome="Consultaparque" 
+                                          icon="fa fa-search" styleClass="ui-priority-primary" >
+                                      <f:param name="action" value="consultar" />
+                                      <f:param name="identificacion" value="#{item.id}" />
+                                 </p:button>
+                                 <p:commandButton value="Eliminar parque" 
+                                    id="btnEliminarParque" 
+                                    action="#{listaParqueView.eliminaParques(item.id)}" 
+                                    update="tblParque"/>
+                                 </p:column>    
+                                 
                         </p:dataTable>
        
        

@@ -17,6 +17,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -28,6 +29,8 @@ public class ListaParqueView {
     private List<Parque>  listaparques;
     private final String url = "https://private-05017d-parques1.apiary-mock.com/parks?status=";
     private final String urlopen = "https://private-05017d-parques1.apiary-mock.com/parks?status=Open";
+    private final String urlclose = "https://private-05017d-parques1.apiary-mock.com/parks?status=Closed";
+    private final String urldelete = "https://private-05017d-parques1.apiary-mock.com/parks/{id}";
 
     public List<Parque> getListaparques() {
         return listaparques;
@@ -63,5 +66,30 @@ public class ListaParqueView {
             listaparques.add(Parque.fromJson(val));          
         }
         return "";
+    }
+    public String consultaParquesClose(){ 
+        listaparques = new ArrayList<>();
+        Client cliente = ClientBuilder.newClient();                                 
+        WebTarget rs =cliente.target(urlclose);       
+        JsonArray jsonarray = (JsonArray) rs.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
+        
+        Iterator iter = jsonarray.iterator();
+        while(iter.hasNext()){
+            JsonObject val = (JsonObject)iter.next();                 
+            listaparques.add(Parque.fromJson(val));          
+        }
+        return "";
+    }
+    public void eliminaParques(Parque parque){ 
+        listaparques = new ArrayList<>();
+        Client cliente = ClientBuilder.newClient();                                 
+        WebTarget rs =cliente.target(urldelete);  
+        
+        Response response = rs.resolveTemplate("id", parque.getId())
+                    .request(MediaType.APPLICATION_JSON).get();
+        
+        //JsonObject jsonObj = (JsonObject) rs.resolveTemplate("parkId", parkId)
+        //           .request(MediaType.APPLICATION_JSON)
+        //           .delete(JsonObject.class);
     }
 }
