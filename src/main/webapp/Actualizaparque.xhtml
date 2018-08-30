@@ -14,19 +14,19 @@
     
     <ui:define name="content">
         <h:panelGrid columns="2" cellpadding = "5">
-            <h:outputLabel for="txtid=" value="id"/>
+            <h:outputLabel for="txtid=" value="#{bundle.COL_ID}"/>
             <p:inputText id="txtid" required="true" value="#{actualizaParqueView.selectedParque.id}"/>
             
-            <h:outputLabel for="txtname" value="name"/>
+            <h:outputLabel for="txtname" value="#{bundle.COL_NAME}"/>
             <p:inputText id="txtname" required="true" value="#{actualizaParqueView.selectedParque.nombre}"/>
             
-            <h:outputLabel for="txtestado" value="estado"/>
+            <h:outputLabel for="txtestado" value="#{bundle.COL_ESTADO}"/>
             <p:inputText id="txtestado" required="true" value="#{actualizaParqueView.selectedParque.estado}"/>
             
-            <h:outputLabel for="txtstatus" value="status"/>
+            <h:outputLabel for="txtstatus" value="#{bundle.COL_STATUS}"/>
             <p:inputText id="txtstatus" required="true" value="#{actualizaParqueView.selectedParque.status}"/>
             
-            <h:outputLabel for="txtcapacidad" value="capacidad"/>
+            <h:outputLabel for="txtcapacidad" value="#{bundle.COL_CAPACITY}"/>
             <p:inputText id="txtcapacidad" required="true" value="#{actualizaParqueView.selectedParque.capacidad}"/>
             
             <p:spacer width="1" height="15"/>

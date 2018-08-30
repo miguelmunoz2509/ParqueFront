@@ -12,16 +12,16 @@
 
     <ui:define name="content">
         <p:panelGrid columns="1">
-            <p:commandButton value="Cargar todos los parques" 
+            <p:commandButton value="#{bundle.BTN_ALL}"
                          id="btnCargarParque" 
                          action="#{listaParqueView.consultaParques()}" 
                          update="tblParque"/>
-            <p:commandButton value="Cargar parques abiertos" 
+            <p:commandButton value="#{bundle.BTN_OPEN}" 
                          id="btnCargarParqueOpen" 
                          update="tblParque"
                          action="#{listaParqueView.consultaParquesOpen()}" 
                          />
-            <p:commandButton value="Cargar parques cerrados" 
+            <p:commandButton value="#{bundle.BTN_CLOSE}" 
                          id="btnCargarParqueClose" 
                          update="tblParque"
                          action="#{listaParqueView.consultaParquesClose()}" 
@@ -33,23 +33,23 @@
                                      emptyMessage="No se encontraron registros" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
                                      rowsPerPageTemplate="5,10,15,100">
                             
-                            <p:column headerText="id">
+                            <p:column headerText="#{bundle.COL_ID}">
                                 <h:outputText value="#{item.id}" />
                             </p:column>
 
-                            <p:column headerText="name">
+                            <p:column headerText="#{bundle.COL_NAME}">
                                 <h:outputText value="#{item.nombre}" />
                             </p:column>
 
-                            <p:column headerText="estado">
+                            <p:column headerText="#{bundle.COL_ESTADO}">
                                 <h:outputText value="#{item.estado}" />
                             </p:column>
 
-                            <p:column headerText="status">
+                            <p:column headerText="#{bundle.COL_STATUS}">
                                 <h:outputText value="#{item.status}" />
                             </p:column>
 
-                            <p:column headerText="capacidad">
+                            <p:column headerText="#{bundle.COL_CAPACITY}">
                                 <h:outputText value="#{item.capacidad}" />
                             </p:column>
                              
