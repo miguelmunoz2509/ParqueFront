@@ -15,19 +15,19 @@
     <ui:define name="content">
         <h:panelGrid columns="2" cellpadding = "5">
             <h:outputLabel for="txtid=" value="#{bundle.COL_ID}"/>
-            <p:inputText id="txtid" required="true" value="#{consultaParqueView.selectedParque.id}"/>
+            <p:inputText id="txtid" disabled="true" value="#{consultaParqueView.selectedParque.id}"/>
             
             <h:outputLabel for="txtname" value="#{bundle.COL_NAME}"/>
-            <p:inputText id="txtname" required="true" value="#{consultaParqueView.selectedParque.nombre}"/>
+            <p:inputText id="txtname" disabled="true" value="#{consultaParqueView.selectedParque.nombre}"/>
             
             <h:outputLabel for="txtestado" value="#{bundle.COL_ESTADO}"/>
-            <p:inputText id="txtestado" required="true" value="#{consultaParqueView.selectedParque.estado}"/>
+            <p:inputText id="txtestado" disabled="true" value="#{consultaParqueView.selectedParque.estado}"/>
             
             <h:outputLabel for="txtstatus" value="#{bundle.COL_STATUS}"/>
-            <p:inputText id="txtstatus" required="true" value="#{consultaParqueView.selectedParque.status}"/>
+            <p:inputText id="txtstatus" disabled="true" value="#{consultaParqueView.selectedParque.status}"/>
             
             <h:outputLabel for="txtcapacidad" value="#{bundle.COL_CAPACITY}"/>
-            <p:inputText id="txtcapacidad" required="true" value="#{consultaParqueView.selectedParque.capacidad}"/>
+            <p:inputText id="txtcapacidad" disabled="true" value="#{consultaParqueView.selectedParque.capacidad}"/>
             
             <p:spacer width="1" height="15"/>
             <f:facet name="footer">
